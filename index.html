@@ -102,7 +102,7 @@
                 <section id="contacts-container">
 
                     <!-- single contact -->
-                    <div id="contact" v-for="contact in contacts">
+                    <div id="contact" v-for="(contact,contactIndex) in contacts" @click="changeActiveContact(contactIndex)">
 
                         <!-- contact info (img + texts) -->
                         <div id="contact-info">

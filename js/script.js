@@ -188,7 +188,10 @@ const { createApp } = Vue
 
     methods: {
 
+      changeActiveContact(clickedContactIndex){
 
+        this.activeContactIndex = clickedContactIndex;
+      }
 
     },
 
