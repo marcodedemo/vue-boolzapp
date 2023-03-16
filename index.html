@@ -152,7 +152,7 @@
                         <!-- active contact img -->
                         <div id="active-contact-img">
 
-                            <img :src="contacts[0].avatar" alt="Active contact avatar">
+                            <img :src="contacts[activeContactIndex].avatar" alt="Active contact avatar">
 
                         </div>
 
@@ -161,7 +161,7 @@
 
                             <!-- active contact name -->
                             <span id="active-contact-name">
-                                {{ contacts[0].name }}
+                                {{ contacts[activeContactIndex].name }}
                             </span>
 
                             <!-- active contact last access -->
@@ -191,7 +191,7 @@
                         <a href="#">
                             
                             <i class="fa-solid fa-ellipsis-vertical"></i>
-                            
+
                         </a>
 
                     </div>
@@ -200,6 +200,10 @@
 
                 <!-- main mid section -->
                 <section id="mid-section">
+
+                    <div id="message" v-for="message in contacts[activeContactIndex].messages" :class="message.status == 'sent' ? 'sent' : 'received'">
+                        {{ message.message }}
+                    </div>
 
                 </section>
 

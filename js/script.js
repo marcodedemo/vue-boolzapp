@@ -173,7 +173,8 @@ const { createApp } = Vue
       ],
 
       // new properties
-      saluto: "ciao",
+      
+      activeContactIndex: 0,
       
         
 

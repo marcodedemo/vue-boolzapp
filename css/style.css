@@ -221,6 +221,12 @@ nav #navbar-icons a{
 
     border-bottom: .4px solid lightgray;
 
+    cursor: pointer;
+
+}
+
+#contact:hover{
+    background-color: #e9ebeb;
 }
 
 #contact #contact-info{
@@ -340,13 +346,35 @@ main #top-section{
 /* -------------------------------------------------------------------------- */
 
 main #mid-section{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 
     width: 100%;
     height: calc(100% - 150px);
     background-image: url("../img/mine.jpg");
 
+    padding: 50px 20px ;
 }
 
+#message{
+    max-width: 400px;
+    min-width: 200px;
+
+    padding: 20px;
+
+    border-radius: 15px;
+}
+
+#message.sent{
+    align-self: end;
+    background-color: #d5f9ba;
+}
+
+#message.received{
+    align-self: start;
+    background-color: white;
+}
 
 /* -------------------------------------------------------------------------- */
 /*                             main bottom section                            */
