@@ -9,5 +9,117 @@
 
 body{
     font-family: Arial, Helvetica, sans-serif;
+
+
 }
 
+/* green background */
+#green-bg{
+    background-color: #009688;
+    width: 100vw;
+    height: 150px;
+
+    position: absolute;
+    top: 0;
+
+    z-index: -1;
+}
+
+/* gray background */
+#gray-bg{
+    width: 100vw;
+    height: calc(100vh - 150px);
+
+    position: absolute;
+    bottom: 0;
+
+    background-color: #d8dbd5;
+
+    z-index: -1;
+
+}
+
+#whatsapp-app-container{
+    display: flex;
+
+    margin: 20px 200px;
+
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                    aside                                   */
+/* -------------------------------------------------------------------------- */
+
+aside{
+    display: flex;
+    flex-flow: column nowrap;
+
+    width: 560px;
+    height: calc(100vh - 40px);
+}
+
+
+nav{
+    width: 100%;
+    height: 75px;
+    background-color: red;
+}
+
+#notifications{
+    width: 100%;
+    height: 80px;
+    background-color: #8ddafc;
+}
+
+#search-bar-container{
+    width: 100%;
+    height: 60px;
+
+    background-color: #fafafa;
+}
+
+#users-container{
+    width: 100%;
+    height: calc(100% - 75px - 80px - 60px);
+
+    background-color: white;
+}
+
+
+
+/* -------------------------------------------------------------------------- */
+/*                                    main                                    */
+/* -------------------------------------------------------------------------- */
+
+
+main{
+    width: calc(100vw - 560px);
+
+    background-color: #f3eeea;
+
+    height: calc(100vh - 40px);
+}
+
+main #top-section{
+    width: 100%;
+    height: 75px;
+    /* background-color: #f3eeea; */
+    background-color: aqua;
+
+}
+
+main #mid-section{
+
+    width: 100%;
+    height: calc(100% - 150px);
+    background-image: url(../img/mine.jpg);
+
+    overflow-y: scroll;
+}
+
+main #bottom-section{
+    width: 100%;
+    height: 75px;
+    /* background-color: #f3eeea; */
+    background-color: aqua;
+}
