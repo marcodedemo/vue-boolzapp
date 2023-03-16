@@ -42,7 +42,7 @@ body{
 #whatsapp-app-container{
     display: flex;
 
-    margin: 20px 200px;
+    margin: 25px 200px;
 
 }
 
@@ -55,37 +55,203 @@ aside{
     flex-flow: column nowrap;
 
     width: 560px;
-    height: calc(100vh - 40px);
+    height: calc(100vh - 50px);
 }
 
+/* -------------------------------------------------------------------------- */
+/*                                   navbar                                   */
+/* -------------------------------------------------------------------------- */
 
 nav{
+    display: flex;
+    justify-content: space-between;
+
     width: 100%;
     height: 75px;
-    background-color: red;
+    background-color: #eaeaea;
+
+    padding-left: 10px;
+    padding-right: 20px;
 }
 
+nav #user-app-info{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+
+nav #user-app-info img{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+}
+
+nav #navbar-icons{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+
+    font-size: 1.4em;
+}
+
+nav #navbar-icons a{
+    text-decoration: none;
+    color: #b1b1b1;
+
+}
+
+/* -------------------------------------------------------------------------- */
+/*                         aside notification section                         */
+/* -------------------------------------------------------------------------- */
+
 #notifications{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
     width: 100%;
     height: 80px;
     background-color: #8ddafc;
+
+    padding: 0 15px;
 }
 
+#notifications #notification-icon i{
+    background-color: white;
+    color: #8ddafc;
+    
+    font-size: 2em;
+
+    border-radius: 50%;
+
+    padding: 15px 12px;
+
+}
+
+#notifications #notification-text{
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+
+}
+
+#notifications #notification-text a{
+    font-size: .8em;
+    color: black;
+    opacity: .6;
+}
+
+/* -------------------------------------------------------------------------- */
+/*                          aside search bar section                          */
+/* -------------------------------------------------------------------------- */
+
 #search-bar-container{
+    display: flex;
+    align-items: center;
+
     width: 100%;
     height: 60px;
 
     background-color: #fafafa;
 }
 
-#users-container{
+#search-bar-container form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+    width: 100%;
+    padding: 0 8px;
+}
+#search-bar-container button{
+    width: 60px;
+    height: 40px;
+
+    color: #b6b8ba;
+    background-color: white;
+
+    border: .5px solid lightgray;
+    
+    font-size: 1.2em;
+
+    cursor: pointer;
+}
+
+#search-bar-container input{
+    width: calc(100% - 70px);
+    height: 40px;
+
+    background-color: white;
+    
+    border: .5px solid lightgray;
+    border-left: none;
+
+    padding: 5px;
+
+}
+
+
+/* -------------------------------------------------------------------------- */
+/*                           aside contacts section                           */
+/* -------------------------------------------------------------------------- */
+
+#contacts-container{
     width: 100%;
     height: calc(100% - 75px - 80px - 60px);
 
     background-color: white;
+
 }
 
+#contact{
+    height: 80px;
+    width: 100%;
 
+    padding: 10px 20px;
+
+    border-bottom: .4px solid lightgray;
+
+}
+
+#contact #contact-info{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    position: relative;
+}
+
+#contact #contact-img{
+    width: 60px;
+}
+
+#contact #contact-img img{
+    width: 100%;
+    border-radius: 50%;
+}
+
+#contact #contact-text{
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+#contact #contact-text #last-message{
+    font-size: .8em;
+    opacity: .4;
+}
+
+#last-message-time{
+    position: absolute;
+    top: 2px;
+    right: 2px;
+
+    font-size: .8em;
+    opacity: .4;
+}
 
 /* -------------------------------------------------------------------------- */
 /*                                    main                                    */
@@ -97,7 +263,7 @@ main{
 
     background-color: #f3eeea;
 
-    height: calc(100vh - 40px);
+    height: calc(100vh - 50px);
 }
 
 main #top-section{
@@ -112,9 +278,8 @@ main #mid-section{
 
     width: 100%;
     height: calc(100% - 150px);
-    background-image: url(../img/mine.jpg);
+    background-image: url("../img/mine.jpg");
 
-    overflow-y: scroll;
 }
 
 main #bottom-section{

@@ -30,18 +30,123 @@
 
         <div id="whatsapp-app-container">
 
+            <!-- left app aside -->
             <aside>
-                <nav></nav>
-                <section id="notifications"></section>
-                <section id="search-bar-container"></section>
-                <section id="users-container"></section>
+
+                <!-- navbar -->
+                <nav>
+                    <!-- user app info  -->
+                    <div id="user-app-info">
+                        <img src="img/avatar_io.jpg" alt="principal user avatar">
+                        <div id="user-app-name">Sofia</div>
+                    </div>
+
+                    <!-- icons -->
+                    <div id="navbar-icons">
+
+                        <a href="#">
+                            <i class="fa-solid fa-circle-notch"></i>
+                        </a>
+
+                        <a href="#">
+                            <i class="fa-solid fa-message"></i>
+                        </a>
+
+                        <a href="#">
+                            <i class="fa-solid fa-ellipsis-vertical"></i>
+                        </a>
+
+                    </div>
+
+                </nav>
+
+                <!-- aside notification section -->
+                <section id="notifications">
+
+                    <!-- notification bell icon -->
+                    <div id="notification-icon">
+
+                        <i class="fa-solid fa-bell-slash"></i>
+
+                    </div>
+
+                    <!-- notification text info -->
+                    <div id="notification-text">
+
+                        <span>Ricevi Notifiche di nuovi messaggi</span>
+                        <a href="#">Attiva notifiche desktop</a>
+
+                    </div>
+
+                </section>
+
+                <!-- aside search bar section  -->
+                <section id="search-bar-container">
+
+                    <!-- form -->
+                    <form action="#">
+                        <!-- search button  -->
+                        <button>
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </button>
+
+                        <!-- text input -->
+                        <input type="text" placeholder="Cerca o inizia una nuova chat">
+
+                    </form>
+
+                </section>
+
+
+                <!-- aside contacts section -->
+                <section id="contacts-container">
+
+                    <!-- single contact -->
+                    <div id="contact" v-for="contact in contacts">
+
+                        <!-- contact info (img + texts) -->
+                        <div id="contact-info">
+
+                            <!-- contact img -->
+                            <div id="contact-img">
+
+                                <img :src="contact.avatar" alt="contact avatar">
+
+                            </div>
+
+                            <!-- contact texts -->
+                            <div id="contact-text">
+
+                                <!-- contact name -->
+                                <span id="contact-name">
+                                    {{ contact.name }}
+                                </span>
+
+                                <!-- contact last message -->
+                                <span id="last-message">
+                                    {{ contact.messages[0].message }}
+                                </span>
+
+                            </div>
+
+                            <div id="last-message-time">
+                                12:00
+                            </div>
+
+                        </div>
+
+                    </div>
+                </section>
+
             </aside>
 
 
             <main>
+
                 <section id="top-section"></section>
                 <section id="mid-section"></section>
                 <section id="bottom-section"></section>
+
             </main>
 
         </div>
