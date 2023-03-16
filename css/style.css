@@ -361,6 +361,9 @@ main #mid-section{
 }
 
 #message{
+
+    position: relative;
+
     max-width: 400px;
     min-width: 200px;
 
@@ -377,6 +380,16 @@ main #mid-section{
 #message.received{
     align-self: start;
     background-color: white;
+}
+
+#message #message-time{
+    position: absolute;
+    bottom: 2px;
+    right: 6px;
+
+    font-size: .8em;
+
+    opacity: .4;
 }
 
 /* -------------------------------------------------------------------------- */

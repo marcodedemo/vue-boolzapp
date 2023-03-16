@@ -21,6 +21,8 @@
     <!-- script Vue JS -->
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     
+    <!-- script luxon -->
+    <script src="https://cdn.jsdelivr.net/npm/luxon@3.3.0/build/global/luxon.min.js"></script>
     
     <!-- Vue JS app -->
     <div id="app">
@@ -44,7 +46,7 @@
                     <!-- icons -->
                     <div id="navbar-icons">
 
-                        <a href="#">
+                        <a href="#" >
                             <i class="fa-solid fa-circle-notch"></i>
                         </a>
 
@@ -124,7 +126,7 @@
 
                                 <!-- contact last message -->
                                 <span id="last-message">
-                                    Ultimo messaggio inviato
+                                    {{ contact.messages.slice(-1)[0].message }}
                                 </span>
 
                             </div>
@@ -201,8 +203,17 @@
                 <!-- main mid section -->
                 <section id="mid-section">
 
-                    <div id="message" v-for="message in contacts[activeContactIndex].messages" :class="message.status == 'sent' ? 'sent' : 'received'">
+                    <div id="message" v-for="(message, messageIndex) in contacts[activeContactIndex].messages" :class="message.status == 'sent' ? 'sent' : 'received'">
+
                         {{ message.message }}
+
+                        <!-- message time -->
+                        <div id="message-time">
+
+                            {{contacts[activeContactIndex].messages[messageIndex].date.slice(11, -3)}}
+
+                        </div>
+
                     </div>
 
                 </section>

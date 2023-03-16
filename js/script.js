@@ -185,7 +185,7 @@ const { createApp } = Vue
 
       // input contact search-bar 
       searchedInput:"",
-        
+      
 
       }
 
@@ -201,17 +201,27 @@ const { createApp } = Vue
       changeActiveContact(clickedContactIndex){
 
         this.activeContactIndex = clickedContactIndex;
+
       },
 
       // send new message 
       sendNewMessage(){
 
+        // dichiaro la variabile richiamante luxon
+        let orarioMessaggio = luxon.DateTime;
+
+        // taglio la stringa dell'orario generata al carattere che mi serve
+        messageSendedTime = orarioMessaggio.now().toISO().slice(0, - 10);
+
         // dichiaro il nuovo oggetto messaggio
         let newMessageObject = {
-          date: '',
+          date: "",
           message: '',
           status: 'sent'
         }
+
+        // attribuisco alla data dell'oggetto "nuovo messaggio" la data creata
+        newMessageObject.date = messageSendedTime;
 
         // attribuisco alla proprietà "messaggio" dell'oggetto creato il valore dell'input nel DOM
         newMessageObject.message = this.newMessageText;
@@ -227,12 +237,21 @@ const { createApp } = Vue
       // timeout to answer
       answerToAMessage(){
 
+        // dichiaro la variabile richiamante luxon
+        let orarioRisposta = luxon.DateTime;
+
+        // taglio la stringa dell'orario generata al carattere che mi serve
+        answerSendedTime = orarioRisposta.now().toISO().slice(0, - 10);
+
         // dichiaro il nuovo oggetto corrispondente al messaggio di risposta
         let newAnswer = {
           date: '',
           message: 'Ok!',
           status: 'received'
         }
+
+        // attribuisco alla data dell'oggetto "nuova risposta" la data creata
+        newAnswer.date = answerSendedTime;
 
         // timeout to answer
         answerTimeout = setTimeout(() => {
@@ -250,7 +269,7 @@ const { createApp } = Vue
         // controllo per ogni nome nei contatti
         for (let i = 0; i < this.contacts.length; i++) {
             
-          
+
           // se il nome contiene l'input
           if(this.contacts[i].name.toLowerCase().includes(this.searchedInput.toLowerCase())){
               
@@ -267,6 +286,7 @@ const { createApp } = Vue
         }
         
       },
+
       
     }
   
