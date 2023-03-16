@@ -217,6 +217,11 @@ nav #navbar-icons a{
 }
 
 #contact{
+    display: flex;
+    align-items: center;
+
+    position: relative;
+
     height: 80px;
     width: 100%;
 
@@ -237,11 +242,11 @@ nav #navbar-icons a{
     align-items: center;
     gap: 20px;
 
-    position: relative;
 }
 
 #contact #contact-img{
     width: 60px;
+    flex-shrink: 0;
 }
 
 #contact #contact-img img{
@@ -262,8 +267,8 @@ nav #navbar-icons a{
 
 #last-message-time{
     position: absolute;
-    top: 2px;
-    right: 2px;
+    top: 8px;
+    right: 8px;
 
     font-size: .8em;
     opacity: .4;
@@ -278,6 +283,8 @@ main{
 
     width: calc(100vw - 560px);
     height: calc(100vh - 50px);
+
+    flex-grow: 1;
 
 }
 
@@ -310,6 +317,7 @@ main #top-section{
 
 #top-section #active-contact-info #active-contact-img{
     width: 60px;
+    flex-shrink: 0;
 }
 
 #top-section #active-contact-info #active-contact-img img{
@@ -357,7 +365,7 @@ main #mid-section{
     height: calc(100% - 150px);
     background-image: url("../img/mine.jpg");
 
-    padding: 50px 80px ;
+    padding: 50px 60px ;
 
     overflow-y: auto;
 }
@@ -366,8 +374,7 @@ main #mid-section{
 
     position: relative;
 
-    max-width: 400px;
-    min-width: 200px;
+    min-width: 300px;
 
     padding: 20px;
 
@@ -405,11 +412,12 @@ main #mid-section{
 
     top: 2px;
     right: 8px;
-
+    
     font-size: 1.2em;
-
+    
     color: #727a7d;
-
+    
+    padding: 4px;
 }
 
 #dropdown{
@@ -422,12 +430,12 @@ main #mid-section{
 
 #message-dropdown-content{
     display: none;
-
+    
     position: absolute;
-
+    
     transform: translate(-50%);
 
-    z-index: 1;
+    z-index: 2;
 
     min-width: 150px;
 
@@ -508,4 +516,170 @@ main #bottom-section{
     text-decoration: none;
     color: #727a7d;
     
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* -------------------------------------------------------------------------- */
+/*                                media querys                                */
+/* -------------------------------------------------------------------------- */
+
+
+@media screen and (max-width: 1200px){
+
+    /* ---------------------------------- aside --------------------------------- */
+    aside{
+        width: 350px;
+    }
+    
+    /* ---------------------------------- main ---------------------------------- */
+
+    #whatsapp-app-container{
+        margin: 25px 80px;
+    }
+
+    #message{
+        min-width: 100px;
+    }
+}
+
+
+@media screen and (max-width: 992px){
+
+    /* ---------------------------------- aside --------------------------------- */
+    aside{
+        width: 300px;
+    }
+    
+    /* ---------------------------------- main ---------------------------------- */
+
+    main #top-section{
+        padding: 0 10px;
+    }
+
+    #top-section #main-top-section-icons{
+        gap: 10px;
+    }
+
+    main #bottom-section{
+        gap: 10px;
+        padding: 0 10px;
+    }
+}
+
+
+@media screen and (max-width: 768px){
+
+    /* ---------------------------------- aside --------------------------------- */
+    aside{
+        width: 150px;
+    }
+
+    nav #user-app-name{
+        display: none;
+    }
+
+    nav #navbar-icons{
+        gap: 6px;
+        font-size: 1.2em;     
+    }
+
+    #notifications{
+        justify-content: center;
+    }
+    #notifications #notification-text{
+        display: none;
+    }
+
+    #search-bar-container button{
+        display: none;
+    }
+
+    #search-bar-container input{
+        width: 100%;
+    }
+
+    #contact{
+        padding: 0 5px;
+    }
+    #contact #contact-info{
+        gap: 8px;
+    }
+
+    #contact #contact-img{
+        width: 40px;
+    }
+    
+    #contact #contact-text{
+        font-size: .8em;
+    }
+    #contact #contact-text #last-message{
+        display: none;
+    }
+
+    #last-message-time{
+        display: none;
+    }
+
+    /* ---------------------------------- main ---------------------------------- */
+
+    #top-section #active-contact-info #active-contact-text #active-contact-last-access{
+        display: none;
+    }
+
+    #message{
+        min-width: 50px;
+    }
+
+    #message-dropdown-content{
+        font-size: .6em;
+
+        min-width: 50px;
+
+        text-align: center;
+    }
+
+    #top-section #main-top-section-icons{
+        gap: 6px;
+        font-size: 1.2em;
+    }
+
+    main #mid-section{
+        padding: 30px 10px;
+    }
+
+    #bottom-section #bottom-left{
+        font-size: 1.2em;
+    }
+
+        #bottom-section #bottom-right{
+        font-size: 1.2em;
+    }
+}
+
+@media screen and (max-width: 576px){
+
+    /* ---------------------------------- aside --------------------------------- */
+    nav{
+        justify-content: center;
+    }
+
+    nav #navbar-icons{
+        display: none;
+    }
+    
+    /* ---------------------------------- main ---------------------------------- */
+    #top-section #main-top-section-icons{
+        display: none;
+    }
 }
