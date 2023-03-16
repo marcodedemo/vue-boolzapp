@@ -104,40 +104,46 @@
                 <section id="contacts-container">
 
                     <!-- single contact -->
-                    <div id="contact" v-show="contact.visible" v-for="(contact,contactIndex) in contacts" @click="changeActiveContact(contactIndex)">
+                    <ul>
 
-                        <!-- contact info (img + texts) -->
-                        <div id="contact-info">
-
-                            <!-- contact img -->
-                            <div id="contact-img">
-
-                                <img :src="contact.avatar" alt="contact avatar">
-
+                        <li id="contact" v-show="contact.visible" v-for="(contact,contactIndex) in contacts" @click="changeActiveContact(contactIndex)">
+                            
+                            <!-- contact info (img + texts) -->
+                            <div id="contact-info">
+                                
+                                <!-- contact img -->
+                                <div id="contact-img">
+                                    
+                                    <img :src="contact.avatar" alt="contact avatar">
+                                    
+                                </div>
+                                
+                                <!-- contact texts -->
+                                <div id="contact-text">
+                                    
+                                    <!-- contact name -->
+                                    <span id="contact-name">
+                                        {{ contact.name }}
+                                    </span>
+                                    
+                                    <!-- contact last message -->
+                                    <span id="last-message">
+                                        {{ contact.messages.slice(-1)[0].message }}
+                                    </span>
+                                    
+                                </div>
+                                
+                                <!-- contact last message time -->
+                                <div id="last-message-time">
+                                    {{ contact.messages.slice(-1)[0].date.slice(11,-3) }}
+                                </div>
+                                
                             </div>
+                            
+                        </li>
 
-                            <!-- contact texts -->
-                            <div id="contact-text">
+                    </ul>
 
-                                <!-- contact name -->
-                                <span id="contact-name">
-                                    {{ contact.name }}
-                                </span>
-
-                                <!-- contact last message -->
-                                <span id="last-message">
-                                    {{ contact.messages.slice(-1)[0].message }}
-                                </span>
-
-                            </div>
-
-                            <div id="last-message-time">
-                                12:00
-                            </div>
-
-                        </div>
-
-                    </div>
                 </section>
 
             </aside>
@@ -168,7 +174,7 @@
 
                             <!-- active contact last access -->
                             <span id="active-contact-last-access">
-                                Ultimo accesso oggi alle: 12:00
+                                Ultimo accesso oggi alle: {{ contacts[activeContactIndex].messages.slice(-1)[0].date.slice(11, - 3) }}
                             </span>
 
                         </div>
@@ -213,6 +219,32 @@
                             {{contacts[activeContactIndex].messages[messageIndex].date.slice(11, -3)}}
 
                         </div>
+
+                        <!-- message dropdown container -->
+                        <div id="message-dropdown">
+
+                            <!-- dropdown -->
+                            <div id="dropdown">
+
+                                <!-- dropdown icon -->
+                                <span>
+
+                                    <i class="fa-solid fa-angle-down"></i>
+
+                                </span>
+                                
+                                <!-- dropdown content -->
+                                <div id="message-dropdown-content">
+
+                                    <div>Message info</div>
+                                    <div @click="deleteMessage(messageIndex)">Delete Message</div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
 
                     </div>
 

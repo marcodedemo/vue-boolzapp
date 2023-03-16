@@ -357,7 +357,9 @@ main #mid-section{
     height: calc(100% - 150px);
     background-image: url("../img/mine.jpg");
 
-    padding: 50px 20px ;
+    padding: 50px 80px ;
+
+    overflow-y: auto;
 }
 
 #message{
@@ -370,6 +372,10 @@ main #mid-section{
     padding: 20px;
 
     border-radius: 15px;
+}
+
+#message:hover #message-dropdown{
+    display: block;
 }
 
 #message.sent{
@@ -390,6 +396,53 @@ main #mid-section{
     font-size: .8em;
 
     opacity: .4;
+}
+
+#message-dropdown{
+    display: none;
+
+    position: absolute;
+
+    top: 2px;
+    right: 8px;
+
+    font-size: 1.2em;
+
+    color: #727a7d;
+
+}
+
+#dropdown{
+    position: relative;
+}
+
+#message-dropdown:hover #message-dropdown-content{
+    display: block;
+}
+
+#message-dropdown-content{
+    display: none;
+
+    position: absolute;
+
+    transform: translate(-50%);
+
+    z-index: 1;
+
+    min-width: 150px;
+
+    font-size: .8em;
+
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.534);
+}
+
+#message-dropdown-content > div{
+    background-color: #ffffff;
+    padding: 10px;
+    z-index: 1;
+}
+#message-dropdown-content > div:hover{
+    background-color:#e9ebeb ;
 }
 
 /* -------------------------------------------------------------------------- */

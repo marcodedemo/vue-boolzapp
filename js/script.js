@@ -185,6 +185,7 @@ const { createApp } = Vue
 
       // input contact search-bar 
       searchedInput:"",
+
       
 
       }
@@ -285,6 +286,12 @@ const { createApp } = Vue
           }
         }
         
+      },
+
+      // delete message 
+      deleteMessage(messageIndex){
+
+        this.contacts[this.activeContactIndex].messages.splice(messageIndex,1)
       },
 
       
