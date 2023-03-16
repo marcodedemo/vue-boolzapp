@@ -86,12 +86,12 @@
                     <!-- form -->
                     <form action="#">
                         <!-- search button  -->
-                        <button>
+                        <button @click="contactSearch">
                             <i class="fa-solid fa-magnifying-glass"></i>
                         </button>
 
                         <!-- text input -->
-                        <input type="text" placeholder="Cerca o inizia una nuova chat">
+                        <input type="text" placeholder="Cerca o inizia una nuova chat" v-model="searchedInput" @keyup="contactSearch">
 
                     </form>
 
@@ -102,7 +102,7 @@
                 <section id="contacts-container">
 
                     <!-- single contact -->
-                    <div id="contact" v-for="(contact,contactIndex) in contacts" @click="changeActiveContact(contactIndex)">
+                    <div id="contact" v-show="contact.visible" v-for="(contact,contactIndex) in contacts" @click="changeActiveContact(contactIndex)">
 
                         <!-- contact info (img + texts) -->
                         <div id="contact-info">
@@ -124,7 +124,7 @@
 
                                 <!-- contact last message -->
                                 <span id="last-message">
-                                    {{ contact.messages[0].message }}
+                                    Ultimo messaggio inviato
                                 </span>
 
                             </div>

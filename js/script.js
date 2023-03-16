@@ -182,6 +182,9 @@ const { createApp } = Vue
 
       // timeout 
       answerTimeout: "",
+
+      // input contact search-bar 
+      searchedInput:"",
         
 
       }
@@ -239,8 +242,33 @@ const { createApp } = Vue
 
         },1000)
 
-      }
+      },
 
-    },
+      // search contact 
+      contactSearch(){
+
+        // controllo per ogni nome nei contatti
+        for (let i = 0; i < this.contacts.length; i++) {
+            
+          
+          // se il nome contiene l'input
+          if(this.contacts[i].name.toLowerCase().includes(this.searchedInput.toLowerCase())){
+              
+            // il contatto sarà visibile
+            this.contacts[i].visible = true;
+              
+            // altrimenti
+          }else{
+              
+            // il contatto non sarà visibile
+            this.contacts[i].visible = false;
+              
+          }
+        }
+        
+      },
+      
+    }
+  
 
   }).mount('#app')
