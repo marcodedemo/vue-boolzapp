@@ -143,9 +143,99 @@
 
             <main>
 
-                <section id="top-section"></section>
-                <section id="mid-section"></section>
-                <section id="bottom-section"></section>
+                <!-- main top section  -->
+                <section id="top-section">
+
+                    <!-- active contact info -->
+                    <div id="active-contact-info">
+
+                        <!-- active contact img -->
+                        <div id="active-contact-img">
+
+                            <img :src="contacts[0].avatar" alt="Active contact avatar">
+
+                        </div>
+
+                        <!-- active contact texts -->
+                        <div id="active-contact-text">
+
+                            <!-- active contact name -->
+                            <span id="active-contact-name">
+                                {{ contacts[0].name }}
+                            </span>
+
+                            <!-- active contact last access -->
+                            <span id="active-contact-last-access">
+                                Ultimo accesso oggi alle: 12:00
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                    <!-- main top icons -->
+                    <div id="main-top-section-icons">
+
+                        <a href="#">
+                            
+                            <i class="fa-solid fa-magnifying-glass"></i>
+
+                        </a>
+
+                        <a href="#">
+
+                            <i class="fa-sharp fa-solid fa-paperclip"></i>
+
+                        </a>
+
+                        <a href="#">
+                            
+                            <i class="fa-solid fa-ellipsis-vertical"></i>
+                            
+                        </a>
+
+                    </div>
+
+                </section>
+
+                <!-- main mid section -->
+                <section id="mid-section">
+
+                </section>
+
+                <!-- main bottom section -->
+                <section id="bottom-section">
+
+                    <!-- main bottom left  -->
+                    <div id="bottom-left">
+
+                        <a href="#">
+
+                            <i class="fa-regular fa-face-smile"></i>
+
+                        </a>
+
+                    </div>
+
+                    <!-- main bottom mid -->
+                    <div id="bottom-mid">
+
+                        <input type="text" placeholder="Scrivi un messaggio">
+
+                    </div>
+
+                    <!-- main bottom right -->
+                    <div id="bottom-right">
+
+                        <a href="#">
+                            
+                            <i class="fa-solid fa-microphone"></i>
+
+                        </a>
+
+                    </div>
+
+                </section>
 
             </main>
 

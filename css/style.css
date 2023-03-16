@@ -56,6 +56,10 @@ aside{
 
     width: 560px;
     height: calc(100vh - 50px);
+
+    overflow-y: auto;
+    background-color: white;
+
 }
 
 /* -------------------------------------------------------------------------- */
@@ -155,6 +159,9 @@ nav #navbar-icons a{
     height: 60px;
 
     background-color: #fafafa;
+
+    border-bottom: .4px solid lightgray;
+
 }
 
 #search-bar-container form{
@@ -259,20 +266,78 @@ nav #navbar-icons a{
 
 
 main{
+
     width: calc(100vw - 560px);
-
-    background-color: #f3eeea;
-
     height: calc(100vh - 50px);
+
 }
+
+
+/* -------------------------------------------------------------------------- */
+/*                              main top section                              */
+/* -------------------------------------------------------------------------- */
 
 main #top-section{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
     width: 100%;
     height: 75px;
-    /* background-color: #f3eeea; */
-    background-color: aqua;
+
+    background-color: #eaeaea;
+
+    border-left: 1px solid lightgray;
+
+    padding: 0 20px;
+}
+
+/* active contact info  */
+#top-section #active-contact-info{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+#top-section #active-contact-info #active-contact-img{
+    width: 60px;
+}
+
+#top-section #active-contact-info #active-contact-img img{
+    width: 100%;
+    border-radius: 50%;
+}
+
+#top-section #active-contact-info #active-contact-text{
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+#top-section #active-contact-info #active-contact-text #active-contact-last-access{
+    font-size: .8em;
+    opacity: .4;
+}
+
+
+/* icons */
+
+#top-section #main-top-section-icons{
+    display: flex;
+    gap: 15px;
+    font-size: 1.4em;
+}
+
+#top-section #main-top-section-icons a{
+    text-decoration: none;
+    color: #b1b1b1;
 
 }
+
+
+/* -------------------------------------------------------------------------- */
+/*                              main mid section                              */
+/* -------------------------------------------------------------------------- */
 
 main #mid-section{
 
@@ -282,9 +347,68 @@ main #mid-section{
 
 }
 
+
+/* -------------------------------------------------------------------------- */
+/*                             main bottom section                            */
+/* -------------------------------------------------------------------------- */
+
 main #bottom-section{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
+
     width: 100%;
     height: 75px;
-    /* background-color: #f3eeea; */
-    background-color: aqua;
+    background-color: #f3eeea;
+
+    padding: 0 40px;
+
+}
+
+/* main bottom left  */
+#bottom-section #bottom-left{
+    font-size: 1.6em;
+}
+
+#bottom-section #bottom-left a{
+    text-decoration: none;
+    color: #727a7d;
+    
+}
+
+/* main bottom mid */
+#bottom-section #bottom-mid{
+    flex-grow: 1;
+}
+
+#bottom-section #bottom-mid input{
+    width: 100%;
+    height: 50px;
+
+    border: none;
+    border-radius: 5px;
+
+    padding: 0 5px;
+
+    outline: none;
+
+}
+
+#bottom-section #bottom-mid input:focus{
+    outline: 1px solid gray;
+
+}
+
+/* main bottom right */
+#bottom-section #bottom-right{
+    font-size: 1.6em;
+    
+    color: #727a7d;
+}
+
+#bottom-section #bottom-right a{
+    text-decoration: none;
+    color: #727a7d;
+    
 }
