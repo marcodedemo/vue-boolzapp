@@ -174,8 +174,14 @@ const { createApp } = Vue
 
       // new properties
       
+      // active contact index
       activeContactIndex: 0,
-      
+
+      // user new message
+      newMessageText: "",
+
+      // timeout 
+      answerTimeout: "",
         
 
       }
@@ -188,9 +194,51 @@ const { createApp } = Vue
 
     methods: {
 
+      // change active contact 
       changeActiveContact(clickedContactIndex){
 
         this.activeContactIndex = clickedContactIndex;
+      },
+
+      // send new message 
+      sendNewMessage(){
+
+        // dichiaro il nuovo oggetto messaggio
+        let newMessageObject = {
+          date: '',
+          message: '',
+          status: 'sent'
+        }
+
+        // attribuisco alla proprietà "messaggio" dell'oggetto creato il valore dell'input nel DOM
+        newMessageObject.message = this.newMessageText;
+
+        // inserisco nell'array messages il nuovo oggetto 
+        this.contacts[this.activeContactIndex].messages.push(newMessageObject);
+
+        // inizializzo la proprietà "newMessageText" corrispondente al valore inserito nell'input nel DOM
+        this.newMessageText = "";
+
+      },
+
+      // timeout to answer
+      answerToAMessage(){
+
+        // dichiaro il nuovo oggetto corrispondente al messaggio di risposta
+        let newAnswer = {
+          date: '',
+          message: 'Ok!',
+          status: 'received'
+        }
+
+        // timeout to answer
+        answerTimeout = setTimeout(() => {
+
+          // inserisco nell'array messages il nuovo oggetto
+          this.contacts[this.activeContactIndex].messages.push(newAnswer);
+
+        },1000)
+
       }
 
     },

@@ -224,7 +224,7 @@
                     <!-- main bottom mid -->
                     <div id="bottom-mid">
 
-                        <input type="text" placeholder="Scrivi un messaggio">
+                        <input type="text" placeholder="Scrivi un messaggio" v-model="newMessageText" @keyup.enter="sendNewMessage(),answerToAMessage()">
 
                     </div>
 
