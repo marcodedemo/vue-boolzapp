@@ -46,7 +46,7 @@
                     <!-- icons -->
                     <div id="navbar-icons">
 
-                        <a href="#" >
+                        <a href="#">
                             <i class="fa-solid fa-circle-notch"></i>
                         </a>
 
@@ -106,7 +106,7 @@
                     <!-- single contact -->
                     <ul>
 
-                        <li id="contact" v-show="contact.visible" v-for="(contact,contactIndex) in contacts" @click="changeActiveContact(contactIndex)">
+                        <li id="contact" :class="activeContactIndex == contactIndex ? 'active' : ''" v-show="contact.visible" v-for="(contact,contactIndex) in contacts" @click="changeActiveContact(contactIndex)">
                             
                             <!-- contact info (img + texts) -->
                             <div id="contact-info">
@@ -174,7 +174,7 @@
 
                             <!-- active contact last access -->
                             <span id="active-contact-last-access">
-                                Ultimo accesso oggi alle: {{ contacts[activeContactIndex].messages.slice(-1)[0].date.slice(11, - 3) }}
+                                {{ showLastAccess() }}
                             </span>
 
                         </div>
@@ -209,7 +209,7 @@
                 <!-- main mid section -->
                 <section id="mid-section">
 
-                    <div id="message" v-for="(message, messageIndex) in contacts[activeContactIndex].messages" :class="message.status == 'sent' ? 'sent' : 'received'">
+                    <div id="message" v-for="(message, messageIndex) in contacts[activeContactIndex].messages" :class="message.status">
 
                         {{ message.message }}
 

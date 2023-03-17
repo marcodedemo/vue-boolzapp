@@ -198,14 +198,16 @@ const { createApp } = Vue
 
     methods: {
 
-      // change active contact 
+        
+      /* -------------------------- change active contact ------------------------- */
       changeActiveContact(clickedContactIndex){
 
         this.activeContactIndex = clickedContactIndex;
 
       },
 
-      // send new message 
+
+      /* ---------------------------- send new message ---------------------------- */
       sendNewMessage(){
 
         // dichiaro la variabile richiamante luxon
@@ -235,12 +237,13 @@ const { createApp } = Vue
 
       },
 
-      // timeout to answer
+
+      /* ---------------------------- timeout to answer --------------------------- */
       answerToAMessage(){
 
         // dichiaro la variabile richiamante luxon
         let orarioRisposta = luxon.DateTime;
-
+        
         // taglio la stringa dell'orario generata al carattere che mi serve
         answerSendedTime = orarioRisposta.now().toISO().slice(0, - 10);
 
@@ -259,12 +262,14 @@ const { createApp } = Vue
 
           // inserisco nell'array messages il nuovo oggetto
           this.contacts[this.activeContactIndex].messages.push(newAnswer);
+    
 
         },1000)
 
       },
 
-      // search contact 
+
+      /* ----------------------------- search contact ----------------------------- */
       contactSearch(){
 
         // controllo per ogni nome nei contatti
@@ -288,11 +293,58 @@ const { createApp } = Vue
         
       },
 
-      // delete message 
+
+
+      /* ----------------------------- delete message ----------------------------- */
       deleteMessage(messageIndex){
 
         this.contacts[this.activeContactIndex].messages.splice(messageIndex,1)
       },
+
+
+
+      /* ------------------------ show contact last access ------------------------ */
+    showLastAccess(){
+
+        // dichiaro la variabile corrispondente all'ultimo accesso
+        let lastAccess = "";
+
+        // se l'ultimo messaggio è stato un messaggio ricevuto 
+        if (this.contacts[this.activeContactIndex].messages[this.contacts[this.activeContactIndex].messages.length -1].status == "received") {
+
+            // inserisco nel dom l'orario del messaggio presente nell'array
+            lastAccess = "Ultimo accesso oggi alle:" +" "+ this.contacts[this.activeContactIndex].messages[this.contacts[this.activeContactIndex].messages.length -1].date.slice(11,-3);
+            
+            return lastAccess;
+
+            // altrimenti
+        }else{
+
+            // eseguo un ciclo al contrario per controllare dall'ultimo al primo 
+            for (let i = (this.contacts[this.activeContactIndex].messages.length - 1); i >= 0 ; i--) {
+
+                // il primo messaggio che trovo con status received
+                if(this.contacts[this.activeContactIndex].messages[i].status == "received"){
+                    
+                    // imposta la propria data come ultimo accesso del contatto
+                    lastAccess = "Ultimo accesso oggi alle:" +" "+ this.contacts[this.activeContactIndex].messages[i].date.slice(11,-3);
+
+                    return lastAccess;
+
+                // in caso non ci siano messaggi ricevuti stampo "ultimo accesso tanto tempo fa"
+                }else{
+
+                    lastAccess = "Ultimo accesso tanto tempo fa"
+                }
+
+            }
+        }
+
+        // ritorno la variabile
+        return lastAccess;
+
+      },
+
 
       
     }

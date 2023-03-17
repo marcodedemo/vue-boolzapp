@@ -44,6 +44,7 @@ body{
 
     margin: 25px 200px;
 
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.421);
 }
 
 /* -------------------------------------------------------------------------- */
@@ -231,6 +232,11 @@ nav #navbar-icons a{
 
     cursor: pointer;
 
+}
+
+#contact.active{
+
+    background-color: #727a7d2b;
 }
 
 #contact:hover{
@@ -585,18 +591,27 @@ main #bottom-section{
         width: 150px;
     }
 
+    nav #user-app-info img{
+        width: 40px;
+        height: 40px;
+        
+    }
     nav #user-app-name{
-        display: none;
+        font-size: .8em;
     }
 
     nav #navbar-icons{
-        gap: 6px;
-        font-size: 1.2em;     
+        display: none;
     }
 
     #notifications{
         justify-content: center;
     }
+
+    #notifications #notification-icon i{
+        font-size: 1.2em;
+    }
+
     #notifications #notification-text{
         display: none;
     }
@@ -669,10 +684,10 @@ main #bottom-section{
 
 @media screen and (max-width: 576px){
 
-    /* ---------------------------------- aside --------------------------------- */
-    nav{
-        justify-content: center;
+    #whatsapp-app-container{
+        margin: 20px 20px;
     }
+    /* ---------------------------------- aside --------------------------------- */
 
     nav #navbar-icons{
         display: none;
