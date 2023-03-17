@@ -101,6 +101,7 @@ nav #navbar-icons{
     font-size: 1.4em;
 }
 
+
 nav #navbar-icons a{
     text-decoration: none;
     color: #b1b1b1;
@@ -268,7 +269,13 @@ nav #navbar-icons a{
 
 #contact #contact-text #last-message{
     font-size: .8em;
-    opacity: .4;
+    color: #969696;
+}
+
+#contact #contact-text #last-message.seen::before{
+    content: "\2713 ";
+    color: #53bdeb;
+    font-size: 1.2em;
 }
 
 #last-message-time{
@@ -388,6 +395,7 @@ main #mid-section{
 }
 
 
+
 #message.sent{
     align-self: end;
     background-color: #d5f9ba;
@@ -409,6 +417,7 @@ main #mid-section{
 }
 
 #message-dropdown{
+
     position: absolute;
 
     top: 2px;
@@ -419,10 +428,7 @@ main #mid-section{
     color: #727a7d;
     
     padding: 4px;
-
-    cursor: pointer;
 }
-
 
 #dropdown{
     position: relative;
@@ -521,6 +527,8 @@ main #bottom-section{
     color: #727a7d;
     
 }
+
+
 
 
 
