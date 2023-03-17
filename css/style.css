@@ -387,9 +387,6 @@ main #mid-section{
     border-radius: 15px;
 }
 
-#message:hover #message-dropdown{
-    display: block;
-}
 
 #message.sent{
     align-self: end;
@@ -412,8 +409,6 @@ main #mid-section{
 }
 
 #message-dropdown{
-    display: none;
-
     position: absolute;
 
     top: 2px;
@@ -424,7 +419,10 @@ main #mid-section{
     color: #727a7d;
     
     padding: 4px;
+
+    cursor: pointer;
 }
+
 
 #dropdown{
     position: relative;

@@ -209,7 +209,7 @@
                 <!-- main mid section -->
                 <section id="mid-section">
 
-                    <div id="message" v-for="(message, messageIndex) in contacts[activeContactIndex].messages" :class="message.status">
+                    <div id="message" v-for="(message, messageIndex) in contacts[activeContactIndex].messages" :class="message.status" @click="showDeleteMessageButton(message)">
 
                         {{ message.message }}
 
@@ -221,7 +221,7 @@
                         </div>
 
                         <!-- message dropdown container -->
-                        <div id="message-dropdown">
+                        <div id="message-dropdown" v-show="message.showDelete">
 
                             <!-- dropdown -->
                             <div id="dropdown">
