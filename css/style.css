@@ -294,6 +294,9 @@ nav #navbar-icons a{
 
 #welcome-page{
     width: calc(100vw - 560px);
+    height: calc(100vh - 50px);
+
+    flex-grow: 1;
 
 
     background-image: url("../img/mine.jpg");
@@ -303,6 +306,8 @@ nav #navbar-icons a{
     justify-content: center;
     align-items: center;
     gap: 20px;
+
+    text-align: center;
 
 
 }
@@ -350,6 +355,10 @@ main #top-section{
     padding: 0 20px;
 }
 
+#top-section #back-to-contacts{
+    display: none;
+}
+
 /* active contact info  */
 #top-section #active-contact-info{
     display: flex;
@@ -383,6 +392,8 @@ main #top-section{
 
 #top-section #main-top-section-icons{
     display: flex;
+    gap: 10px;
+    padding-right: 10px;
     font-size: 1.4em;
 }
 
@@ -390,12 +401,12 @@ main #top-section{
     text-decoration: none;
     color: #b1b1b1;
 
-    padding: 0 10px;
 
 }
 
 #top-section #main-top-section-icons #dropdown-delete-chat{
     position: relative;
+    padding:  0 5px;
 }
 
 
@@ -500,6 +511,8 @@ main #mid-section{
 
 #delete-message-dropdown{
     position: relative;
+
+    padding: 0 5px;
 }
 
 #message-dropdown:hover #message-dropdown-content{
@@ -615,7 +628,7 @@ main #bottom-section{
 /*                                media querys                                */
 /* -------------------------------------------------------------------------- */
 
-
+/* desktop */
 @media screen and (max-width: 1200px){
 
     /* ---------------------------------- aside --------------------------------- */
@@ -624,6 +637,7 @@ main #bottom-section{
     }
     
     /* ---------------------------------- main ---------------------------------- */
+
 
     #whatsapp-app-container{
         margin: 25px 80px;
@@ -635,7 +649,9 @@ main #bottom-section{
 }
 
 
+/* small desktop */
 @media screen and (max-width: 992px){
+
 
     /* ---------------------------------- aside --------------------------------- */
     aside{
@@ -658,118 +674,51 @@ main #bottom-section{
     }
 }
 
+/* tablet */
+@media screen and (max-width: 768px) {
 
-@media screen and (max-width: 768px){
+    #whatsapp-app-container{
+        margin: 0;
 
+        width: 100vw;
+        height: 100vh;
+    }
+
+    #green-bg{
+        display: none;
+    }
+
+    #gray-bg{
+        display: none;
+    }
     /* ---------------------------------- aside --------------------------------- */
     aside{
-        width: 150px;
-    }
-
-    nav #user-app-info img{
-        width: 40px;
-        height: 40px;
-        
-    }
-    nav #user-app-name{
-        font-size: .8em;
-    }
-
-    nav #navbar-icons{
-        display: none;
-    }
-
-    #notifications{
-        justify-content: center;
-    }
-
-    #notifications #notification-icon i{
-        font-size: 1.2em;
-    }
-
-    #notifications #notification-text{
-        display: none;
-    }
-
-    #search-bar-container button{
-        display: none;
-    }
-
-    #search-bar-container input{
         width: 100%;
     }
 
-    #contact{
-        padding: 0 5px;
-    }
-    #contact #contact-info{
-        gap: 8px;
-    }
-
-    #contact #contact-img{
-        width: 40px;
-    }
-    
-    #contact #contact-text{
-        font-size: .8em;
-    }
-    #contact #contact-text #last-message{
-        display: none;
-    }
-
-    #last-message-time{
-        display: none;
-    }
-
-    /* ---------------------------------- main ---------------------------------- */
-
-    #top-section #active-contact-info #active-contact-text #active-contact-last-access{
-        display: none;
-    }
-
-    #message{
-        min-width: 50px;
-    }
-
-    #message-dropdown-content{
-        font-size: .6em;
-
-        min-width: 50px;
-
-        text-align: center;
-    }
-
-    #top-section #main-top-section-icons{
-        gap: 6px;
-        font-size: 1.2em;
-    }
-
-    main #mid-section{
-        padding: 30px 10px;
-    }
-
-    #bottom-section #bottom-left{
-        font-size: 1.2em;
-    }
-
-        #bottom-section #bottom-right{
-        font-size: 1.2em;
-    }
-}
-
-@media screen and (max-width: 576px){
-
-    #whatsapp-app-container{
-        margin: 20px 20px;
-    }
-    /* ---------------------------------- aside --------------------------------- */
-
-    nav #navbar-icons{
-        display: none;
-    }
     
     /* ---------------------------------- main ---------------------------------- */
-    #top-section #main-top-section-icons{
+    
+    #welcome-page{
         display: none;
     }
+
+    main{
+        width: 100vw;
+        height: 100vh;
+    }
+    
+    #top-section #back-to-contacts{
+        display: block;
+
+        font-size: 1.8em;
+        padding-right: 10px;
+    }
+
+    #top-section #main-top-section-icons #dropdown-delete-chat-content{
+        left: -60px;
+    }
+
 }
+
+

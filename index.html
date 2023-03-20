@@ -32,14 +32,18 @@
         <div id="whatsapp-app-container">
 
             <!-- left app aside -->
-            <aside>
+            <aside v-show="showAside">
 
                 <!-- navbar -->
                 <nav>
+
+                    
                     <!-- user app info  -->
                     <div id="user-app-info">
+
                         <img src="img/avatar_io.jpg" alt="principal user avatar">
                         <div id="user-app-name">Sofia</div>
+
                     </div>
 
                     <!-- icons -->
@@ -100,7 +104,7 @@
 
 
                 <!-- aside contacts section -->
-                <section id="contacts-container" @click="showMain = true">
+                <section id="contacts-container" @click="showMain = true, showWelcomePage = false, mobileShowMessagePage()">
 
                     <!-- single contact -->
                     <ul>
@@ -148,7 +152,8 @@
             </aside>
 
 
-            <div id="welcome-page" v-show="!showMain">
+            <!-- welcome page -->
+            <div id="welcome-page" v-show="showWelcomePage">
 
                 <h2>Benvenuto in Boolzap</h2>
 
@@ -165,6 +170,11 @@
 
                     <!-- active contact info -->
                     <div id="active-contact-info">
+
+                    <!-- back to contacts icon  -->
+                    <div id="back-to-contacts" @click="mobileShowContactsPage()">
+                        <i class="fa-solid fa-arrow-left"></i>
+                    </div>
 
                         <!-- active contact img -->
                         <div id="active-contact-img">

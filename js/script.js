@@ -210,8 +210,15 @@ createApp({
       // input contact search-bar 
       searchedInput:"",
 
+
+      //   show welcome page
+      showWelcomePage: true,
+
+      // show main
       showMain: false,
 
+      // show aside
+      showAside: true,
     }
 
 },
@@ -426,9 +433,43 @@ createApp({
       /* --------------------------- delete contact chat -------------------------- */
       deleteContactChat(){
 
-        // rimuovo dall'array contacts il contatto attivo
-        this.contacts.splice(this.activeContactIndex,1)
+        // se lo schermo è di un dispositivo mobile
+        if(screen.width <= 768){
+            //  rimuovo dall'array contacts il contatto attivo
+            this.contacts.splice(this.activeContactIndex,1)
+
+            // e ritorno alla visualizzazione dei contatti
+            this.showAside = true;
+            this.showMain = false;
+
+        // altrimenti
+        }else{
+
+            // rimuovo solo dall'array contacts il contatto attivo
+            this.contacts.splice(this.activeContactIndex,1)
+        }
       },
+
+
+    //   mobile show Message Page 
+      mobileShowMessagePage(){
+        if(screen.width <= 768){
+
+            // nascondo l'aside e visualizzo il main
+            this.showAside = false;
+            this.showMain = true;
+        }
+      },
+
+    //   mobile show contact page 
+      mobileShowContactsPage(){
+        if(screen.width <= 768){
+
+            // visualizzo l'aside e nascondo il main
+            this.showAside = true;
+            this.showMain = false;
+        }
+      }
 
 
       
