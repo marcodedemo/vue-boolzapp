@@ -191,7 +191,9 @@ const { createApp } = Vue
                   }
               ],
           }
-      ],
+        ],
+
+        answers: ["Tutto bene, grazie!", "Ok", "Domani proprio non posso, mi dispiace", "Non so cosa dirti", "Volentieri", "Ti scrivo piu tardi", "Ora sono impegnato", "Va bene dai", "Alla prossima", "Ho fame", "Te l'ho detto 1000 volte", "Mi sembra di si ", "8"],
 
       // new properties
       
@@ -208,7 +210,6 @@ const { createApp } = Vue
       searchedInput:"",
 
 
-
     }
 
 },
@@ -222,6 +223,7 @@ const { createApp } = Vue
         
       /* -------------------------- change active contact ------------------------- */
       changeActiveContact(clickedContactIndex){
+
 
         this.activeContactIndex = clickedContactIndex;
 
@@ -283,13 +285,16 @@ const { createApp } = Vue
         // dichiaro il nuovo oggetto corrispondente al messaggio di risposta
         let newAnswer = {
           date: '',
-          message: 'Ok!',
+          message: '',
           status: 'received',
           showDelete: false,
         }
 
         // attribuisco alla data dell'oggetto "nuova risposta" la data creata
         newAnswer.date = answerSendedTime;
+
+        // attribuisco al testo del messaggio il risultato della funzione che genera una risposta random dell'array risposte
+        newAnswer.message = this.generateRandomAnswer();
 
         // timeout to answer
         answerTimeout = setTimeout(() => {
@@ -387,6 +392,19 @@ const { createApp } = Vue
         return lastAccess;
 
       },
+
+
+      
+      /* ------------------------ random answer from array ------------------------ */
+      generateRandomAnswer(){
+
+        // genero un numero random tra 0 e la lunghezza dell'array di risposte
+        let randomNumber = Math.floor(Math.random() * ((this.answers.length -1) + 1));
+        
+        // ritonrno l'elemento dell'array con indice randomico generato
+        return this.answers[randomNumber];
+
+      }
 
 
       
