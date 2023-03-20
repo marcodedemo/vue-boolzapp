@@ -2,8 +2,9 @@
 
 const { createApp } = Vue
 
-  createApp({
 
+createApp({
+    
     data() {
 
       return {
@@ -209,6 +210,7 @@ const { createApp } = Vue
       // input contact search-bar 
       searchedInput:"",
 
+      showMain: false,
 
     }
 
@@ -430,7 +432,9 @@ const { createApp } = Vue
 
 
       
-    }
+    },
+
+
   
 
   }).mount('#app')

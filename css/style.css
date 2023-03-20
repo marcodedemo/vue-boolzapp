@@ -288,6 +288,35 @@ nav #navbar-icons a{
 }
 
 /* -------------------------------------------------------------------------- */
+/*                                welcome page                                */
+/* -------------------------------------------------------------------------- */
+
+
+#welcome-page{
+    width: calc(100vw - 560px);
+
+
+    background-image: url("../img/mine.jpg");
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+
+
+}
+
+#welcome-page h2{
+    font-size: 2.5em;
+}
+
+#welcome-page span{
+    font-size: 1.6em;
+}
+
+
+/* -------------------------------------------------------------------------- */
 /*                                    main                                    */
 /* -------------------------------------------------------------------------- */
 
@@ -501,6 +530,7 @@ main #mid-section{
 #message-dropdown-content > div:hover{
     background-color:#e9ebeb ;
 }
+
 
 /* -------------------------------------------------------------------------- */
 /*                             main bottom section                            */

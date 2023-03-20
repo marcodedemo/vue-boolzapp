@@ -100,12 +100,12 @@
 
 
                 <!-- aside contacts section -->
-                <section id="contacts-container">
+                <section id="contacts-container" @click="showMain = true">
 
                     <!-- single contact -->
                     <ul>
 
-                        <li id="contact" :class="activeContactIndex == contactIndex ? 'active' : ''" v-show="contact.visible" v-for="(contact,contactIndex) in contacts" @click="changeActiveContact(contactIndex)">
+                        <li id="contact" :class="activeContactIndex == contactIndex  && showMain == true ? 'active' : ''" v-show="contact.visible" v-for="(contact,contactIndex) in contacts" @click="changeActiveContact(contactIndex)">
                             
                             <!-- contact info (img + texts) -->
                             <div id="contact-info">
@@ -148,7 +148,17 @@
             </aside>
 
 
-            <main>
+            <div id="welcome-page" v-show="!showMain">
+
+                <h2>Benvenuto in Boolzap</h2>
+
+                <span>
+                    Clicca un contatto per visualizzare la chat!
+                </span>
+
+            </div>
+
+            <main v-show="showMain">
 
                 <!-- main top section  -->
                 <section id="top-section">
