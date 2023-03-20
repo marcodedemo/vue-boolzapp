@@ -251,8 +251,16 @@ const { createApp } = Vue
         // attribuisco alla proprietà "messaggio" dell'oggetto creato il valore dell'input nel DOM
         newMessageObject.message = this.newMessageText;
 
-        // inserisco nell'array messages il nuovo oggetto 
-        this.contacts[this.activeContactIndex].messages.push(newMessageObject);
+        // controllo che la stringa non sia vuota, nulla o che non contenga solamente spazi vuoti
+        if(!(this.newMessageText == "" || this.newMessageText == "null" || /^\s*$/.test(this.newMessageText))){
+            
+            // inserisco nell'array messages il nuovo oggetto 
+            this.contacts[this.activeContactIndex].messages.push(newMessageObject);
+
+            // eseguo la funzione che genera la risposta
+            this.answerToAMessage();
+        }
+
 
         // inizializzo la proprietà "newMessageText" corrispondente al valore inserito nell'input nel DOM
         this.newMessageText = "";
@@ -328,7 +336,7 @@ const { createApp } = Vue
     },
 
 
-    
+
     /* ----------------------------- delete message ----------------------------- */
     deleteMessage(messageIndex){
 
