@@ -209,9 +209,9 @@ const { createApp } = Vue
 
 
 
-      }
+    }
 
-    },
+},
 
     /* -------------------------------------------------------------------------- */
     /*                                  functions                                 */
@@ -225,11 +225,11 @@ const { createApp } = Vue
 
         this.activeContactIndex = clickedContactIndex;
 
-      },
+    },
 
 
-      /* ---------------------------- send new message ---------------------------- */
-      sendNewMessage(){
+    /* ---------------------------- send new message ---------------------------- */
+    sendNewMessage(){
 
         // dichiaro la variabile richiamante luxon
         let orarioMessaggio = luxon.DateTime;
@@ -257,11 +257,14 @@ const { createApp } = Vue
         // inizializzo la proprietà "newMessageText" corrispondente al valore inserito nell'input nel DOM
         this.newMessageText = "";
 
-      },
+    },
 
 
-      /* ---------------------------- timeout to answer --------------------------- */
-      answerToAMessage(){
+    /* ---------------------------- timeout to answer --------------------------- */
+    answerToAMessage(){
+
+        // creo una variabile  cui assegno il valore del contatto attivo per far si che qualsiasi sia la chat attiva tra l'invio del messaggio e la risposta, la risposta del messaggio inviato arrivi solamente nella chat in cui è stato inviato il messaggio
+        let contactReplyIndex = this.activeContactIndex;
 
         // dichiaro la variabile richiamante luxon
         let orarioRisposta = luxon.DateTime;
@@ -284,16 +287,16 @@ const { createApp } = Vue
         answerTimeout = setTimeout(() => {
 
           // inserisco nell'array messages il nuovo oggetto
-          this.contacts[this.activeContactIndex].messages.push(newAnswer);
+          this.contacts[contactReplyIndex].messages.push(newAnswer);
     
 
         },1000)
 
-      },
+    },
 
 
-      /* ----------------------------- search contact ----------------------------- */
-      contactSearch(){
+    /* ----------------------------- search contact ----------------------------- */
+    contactSearch(){
 
         // controllo per ogni nome nei contatti
         for (let i = 0; i < this.contacts.length; i++) {
@@ -311,18 +314,27 @@ const { createApp } = Vue
             // il contatto non sarà visibile
             this.contacts[i].visible = false;
               
-          }
+            }
         }
-        
-      },
+    
+    },
 
 
+    /* --------------------------- show delete button --------------------------- */
+    showDeleteMessageButton(message){
 
-      /* ----------------------------- delete message ----------------------------- */
-      deleteMessage(messageIndex){
+    // inverto la proprietà show delete del singolo messaggio
+    message.showDelete = !message.showDelete;
+    },
 
+
+    
+    /* ----------------------------- delete message ----------------------------- */
+    deleteMessage(messageIndex){
+
+        // rimuovo l'oggetto corrispondente al messaggio cliccato e lo elimino dall'array
         this.contacts[this.activeContactIndex].messages.splice(messageIndex,1)
-      },
+    },
 
 
 
@@ -368,11 +380,7 @@ const { createApp } = Vue
 
       },
 
-      /* --------------------------- show delete button --------------------------- */
-      showDeleteMessageButton(message){
-        // inverto la proprietà show delete del singolo messaggio
-        message.showDelete = !message.showDelete;
-      }
+
       
     }
   
