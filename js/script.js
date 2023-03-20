@@ -354,6 +354,7 @@ const { createApp } = Vue
       /* ------------------------ show contact last access ------------------------ */
     showLastAccess(){
 
+
         // dichiaro la variabile corrispondente all'ultimo accesso
         let lastAccess = "";
 
@@ -394,7 +395,6 @@ const { createApp } = Vue
       },
 
 
-      
       /* ------------------------ random answer from array ------------------------ */
       generateRandomAnswer(){
 
@@ -404,7 +404,29 @@ const { createApp } = Vue
         // ritonrno l'elemento dell'array con indice randomico generato
         return this.answers[randomNumber];
 
-      }
+      },
+
+      /* --------------------------- remove all messages -------------------------- */
+      deleteAllMessages(){
+
+        // inizializzo l'array dei messaggi con un oggetto vuoto
+        this.contacts[this.activeContactIndex].messages = [{
+
+            date: '',
+            message: '',
+            status: '',
+            showDelete: '',
+
+        },];
+      },
+
+
+      /* --------------------------- delete contact chat -------------------------- */
+      deleteContactChat(){
+
+        // rimuovo dall'array contacts il contatto attivo
+        this.contacts.splice(this.activeContactIndex,1)
+      },
 
 
       

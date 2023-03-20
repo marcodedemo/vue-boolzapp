@@ -195,12 +195,18 @@
 
                         </a>
 
-                        <a href="#">
+                        <div id="dropdown-delete-chat">
+
+                            <a href="#"><i class="fa-solid fa-ellipsis-vertical"></i></a>
+
+                            <div id="dropdown-delete-chat-content">
+
+                                <div @click="deleteAllMessages()">Elimina messaggi</div>
+                                <div @click="deleteContactChat()">Elimina chat</div>
+
+                            </div>
                             
-                            <i class="fa-solid fa-ellipsis-vertical"></i>
-
-                        </a>
-
+                        </div>
                     </div>
 
                 </section>
@@ -223,7 +229,7 @@
                         <div id="message-dropdown" v-show="message.showDelete">
 
                             <!-- dropdown -->
-                            <div id="dropdown">
+                            <div id="delete-message-dropdown">
 
                                 <!-- dropdown icon -->
                                 <span>
